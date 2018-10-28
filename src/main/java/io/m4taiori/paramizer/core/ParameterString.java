@@ -2,6 +2,7 @@ package io.m4taiori.paramizer.core;
 
 import io.m4taiori.paramizer.core.util.Flag;
 import io.m4taiori.paramizer.core.util.InterpretationUtilities;
+import io.m4taiori.paramizer.core.util.SchemeEntry;
 import io.m4taiori.paramizer.core.util.TemporaryFlag;
 
 import java.util.*;
@@ -10,6 +11,8 @@ public class ParameterString
 {
 
     private final String origin;
+
+    private final SchemeEntry[] scheme;
 
     private final String[] splitted;
 
@@ -21,6 +24,7 @@ public class ParameterString
     {
         this.origin = origin;
         this.splitted = origin.split(" ");
+        this.scheme = new SchemeEntry[splitted.length];
         this.interpret();
     }
 
@@ -38,11 +42,13 @@ public class ParameterString
                 if ( isFlag )
                 {
                     currentFlag = new TemporaryFlag(v, i);
+                    scheme[i] = SchemeEntry.FLAG;
                     continue;
                 }
                 else
                 {
                     unassigned.add(v);
+                    scheme[i] = SchemeEntry.UNASSIGNED;
                     continue;
                 }
             }
@@ -52,16 +58,20 @@ public class ParameterString
             {
                 flags.put(currentFlag.getName(), currentFlag.toFlag());
                 currentFlag = new TemporaryFlag(v, i);
+                scheme[i] = SchemeEntry.FLAG;
             }
             else
             {
                 if (currentFlag.hasValue())
                 {
                     unassigned.add(v);
+                    scheme[i] = SchemeEntry.UNASSIGNED;
                 }
                 else
                 {
                     currentFlag.setValue(v);
+                    scheme[i - 1] = SchemeEntry.VALUE_FLAG;
+                    scheme[i] = SchemeEntry.VALUE;
                 }
             }
         }
@@ -78,15 +88,17 @@ public class ParameterString
         return flags.values().toArray( new Flag[flags.size()] );
     }
 
-    public String[] getFlagNames()
-    {
-        return flags.keySet().stream().filter( flagName -> !flags.get(flagName).hasValue() ).toArray(String[]::new);
-    }
 
     public Flag[] getFlags()
     {
         return flags.values().stream().filter(Flag::hasValue).toArray(Flag[]::new);
     }
+
+    public String[] getFlagNames()
+    {
+        return flags.keySet().stream().filter( flagName -> !flags.get(flagName).hasValue() ).toArray(String[]::new);
+    }
+
 
     public Flag[] getValueFlags()
     {
@@ -98,7 +110,13 @@ public class ParameterString
         return flags.keySet().stream().filter( flagName -> flags.get(flagName).hasValue() ).toArray(String[]::new);
     }
 
-    public String [] getUnassigned()
+
+    public SchemeEntry[] getScheme()
+    {
+        return scheme;
+    }
+
+    public String[] getUnassigned()
     {
         return unassigned.toArray( new String[unassigned.size()] );
     }
@@ -107,6 +125,13 @@ public class ParameterString
     {
         return origin;
     }
+
+
+    public boolean firstIs(SchemeEntry schemeEntry)
+    {
+        return getScheme().length > 0 && getScheme()[0].equals(schemeEntry);
+    }
+
 
     public static ParameterString from(String origin)
     {

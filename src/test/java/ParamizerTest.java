@@ -2,6 +2,8 @@ import io.m4taiori.paramizer.core.ParameterString;
 import io.m4taiori.paramizer.core.util.Flag;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 class ParamizerTest
 {
 
@@ -17,7 +19,8 @@ class ParamizerTest
                 (
                         "Unassigned (" + param.getUnassigned().length + "): " + String.join(", ", param.getUnassigned()) + "\n" +
                         "Flags (" + param.getFlagNames().length + "): " + String.join(", ", param.getFlagNames()) + "\n" +
-                        "ValueFlags (" + param.getValueFlagNames().length + "): " + String.join(", ", param.getValueFlagNames())+ "\n\n"
+                        "ValueFlags (" + param.getValueFlagNames().length + "): " + String.join(", ", param.getValueFlagNames())+ "\n" +
+                        "Scheme (" + param.getScheme().length + "): " + Arrays.toString( param.getScheme() ) + "\n\n"
                 );
 
         System.out.println("Value-Flags:");
