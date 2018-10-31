@@ -6,7 +6,7 @@
 
     <groupId>io.m4taiori.paramizer</groupId>
     <artifactId>core</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0-RELEASE</version>
 
     <name>Paramizer</name>
     <description>Provides unix-like command line-interpretation for java.</description>
@@ -24,11 +24,6 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>LATEST</version>
-        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
