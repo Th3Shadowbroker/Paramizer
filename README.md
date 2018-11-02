@@ -32,6 +32,27 @@ Value-Flags:
 	b: assigned-value1OfB
 ```
 
+## Maven
+```xml
+...
+<repository>
+    <repositories>
+        <repository>
+            <id>maven-releases</id>
+            <name>M4taioris-Nexus</name>
+            <url>https://nexus.m4taiori.io/repository/maven-releases/</url>
+        </repository>
+    </repositories>
+</repository>
+
+<dependency>
+    <groupId>io.m4taiori.paramizer</groupId>
+    <artifactId>paramizer-core</artifactId>
+    <version>20183110</version>
+</dependency>
+...
+```
+
 
 ## License
 Paramizer is licensed under the MIT-License
