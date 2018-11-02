@@ -36,9 +36,9 @@ Value-Flags:
 ```xml
 ...
 <repository>
-	<id>maven-releases</id>
-	<name>M4taioris-Nexus</name>
-    	<url>https://nexus.m4taiori.io/repository/maven-releases/</url>
+    <id>maven-releases</id>
+    <name>M4taioris-Nexus</name>
+    <url>https://nexus.m4taiori.io/repository/maven-releases/</url>
 </repository>
 
 <dependency>
