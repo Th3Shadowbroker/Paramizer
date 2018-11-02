@@ -50,7 +50,7 @@ Value-Flags:
 ```
 
 ## Documentation
-The docs of this project are available (here)[https://docs.m4taiori.io/paramizer/].
+The docs of this project are available [here](https://docs.m4taiori.io/paramizer/).
 
 ## License
 Paramizer is licensed under the MIT-License
