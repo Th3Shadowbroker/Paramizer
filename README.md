@@ -44,7 +44,7 @@ Value-Flags:
 <dependency>
     <groupId>io.m4taiori.paramizer</groupId>
     <artifactId>paramizer-core</artifactId>
-    <version>20183110</version>
+    <version>20181128</version>
 </dependency>
 ...
 ```
