@@ -97,6 +97,9 @@ public class ParameterString
             }
         }
 
+        //Null prevention
+        if (currentFlag == null) return;
+
         //Finalize interpretation
         if ( !flags.containsKey(currentFlag.getName()) )
         {
