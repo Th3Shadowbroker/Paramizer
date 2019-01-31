@@ -1,4 +1,6 @@
 ## Paramizer
+![travis-ci-build-status](https://travis-ci.com/Th3Shadowbroker/Paramizer.svg?branch=master)
+
 Paramizer is a java library for unix-like command-line interpretation.
 
 ## Example
@@ -36,11 +38,10 @@ Value-Flags:
 ```xml
 ...
 <repository>
-    <id>maven-releases</id>
-    <name>M4taioris-Nexus</name>
+    <id>th3shadowbroker-releases</id>
     <url>https://nexus.m4taiori.io/repository/maven-releases/</url>
 </repository>
-
+...
 <dependency>
     <groupId>io.m4taiori.paramizer</groupId>
     <artifactId>paramizer-core</artifactId>
