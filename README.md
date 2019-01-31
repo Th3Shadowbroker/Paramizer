@@ -39,7 +39,7 @@ Value-Flags:
 ...
 <repository>
     <id>th3shadowbroker-releases</id>
-    <url>https://nexus.m4taiori.io/repository/maven-releases/</url>
+    <url>https://nexus.m4taiori.io/repository/th3shadowbroker-releases/</url>
 </repository>
 ...
 <dependency>
