@@ -55,6 +55,13 @@
 
     </dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>th3shadowbroker-releases</id>
+            <url>https://nexus.m4taiori.io/repository/th3shadowbroker-releases/</url>
+        </repository>
+    </distributionManagement>
+
     <build>
         <plugins>
             <plugin>
@@ -67,7 +74,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>paramizer-${project.artifactId}-v${project.version}</finalName>
+        <finalName>${project.artifactId}-v${project.version}</finalName>
     </build>
 
 </project>
